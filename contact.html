@@ -160,7 +160,7 @@
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="submit" id="submit" value="Send Message" class="btn btn-primary">
-                <p><a href="#" class="btn btn-primary mr-2" id="start" class="btn1" style="margin-left: 200px; margin-top: -83px;" onclick="window.location.href = 'C:/Users/Sultan/Desktop/Analytix/miniGame/index.html'" >Got Bored? Lets Play a Game!</a></p>
+                <p><a href="#" class="btn btn-primary mr-2" id="start" class="btn1" style="margin-left: 200px; margin-top: -83px;" onclick="window.location.href = 'game.html'" >Got Bored? Lets Play a Game!</a></p>
               </div>
             </div>
           </form>
@@ -178,10 +178,6 @@
         var email = document.getElementById("email").value;
         var gender = document.getElementById("Phone").value;
    
-  
-        // Perform additional validation or data processing as needed
-  
-        // Display the submitted data (you can modify this part according to your requirements)
         alert("Thank you for your submission!" +
           "\n\nName: " + name +
           "\nEmail: " + email +
@@ -208,7 +204,7 @@
     </section>
 
     <script>
-       // Define an array of quotes with their respective authors and images
+ 
   const quotes = [
     {
       quote: "Without big data analytics, companies are blind and deaf, wandering out onto the web like deer on a freeway.",
@@ -241,18 +237,15 @@
       author: "Thomas Redman",
       image: "images/Thomas.jpg"
     }
-    // Add more quotes and authors here
+   
   ];
 
-  // Generate a random index to select a quote
   const randomIndex = Math.floor(Math.random() * quotes.length);
 
-  // Get the HTML elements by their IDs
   const quoteTextElement = document.getElementById("quoteText");
   const authorNameElement = document.getElementById("authorName");
   const authorImageElement = document.getElementById("authorImage");
 
-  // Set the quote text, author name, and image source
   quoteTextElement.textContent = quotes[randomIndex].quote;
   authorNameElement.textContent = `— ${quotes[randomIndex].author}`;
   authorImageElement.src = quotes[randomIndex].image;
