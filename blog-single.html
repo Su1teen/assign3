@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Colorlib Listed Directory Template</title>
+    <title>Analytix</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -35,7 +35,7 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Online Courses</a>
+                <a class="nav-link dropdown-toggle" href="courses.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Online Courses</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
                   <a class="dropdown-item" href="courses.html">FrontEnd</a>
                   <a class="dropdown-item" href="courses.html">BackEnd</a>
@@ -61,7 +61,7 @@
                 </div>
 
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="blog.html">Blog</a>
               </li>
               <li class="nav-item">
@@ -124,87 +124,88 @@
             <button class="our-courses-button" style="font-size: 16px;">Comments</button>
             <button id='hide' class="our-courses-button" style="font-size: 10px; display: none;">hide comments</button>
             <div class="pt-5" style="display:none;">
-              <h3 class="mb-5">6 Comments</h3>
-              <ul class="comment-list">
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/Alizhan.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>ALizhan Zholdas</h3>
-                    <div class="meta">May 18th, 2023 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
+              <h3 class="mb-5">All Comments</h3>
+              <button onclick="openCommentForm()" style=" padding: 10px 20px;
+              background-color: #5d40ff;
+              color: white;
+              border: none;
+              cursor: pointer;
+              font-size: 16px;">Leave a comment</button>
+              <ul id="comments" class="children"></ul>
 
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/Alizhan.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>ALizhan Zholdas</h3>
-                    <div class="meta">May 18th, 2023 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
+              <script>
+                function openCommentForm() {
+      var name = prompt("Enter your name:");
+      var comment = prompt("Enter your comment:");
+      if (name && comment) {
+        addComment(name, comment);
+      }
+    }
 
-                  <ul class="children">
-                    <li class="comment">
-                      <div class="vcard bio">
-                        <img src="images/sula.jpg" alt="Image placeholder">
-                      </div>
-                      <div class="comment-body">
-                        <h3>Sultan Sovetov</h3>
-                        <div class="meta">May 18th, 2023 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
+    function addComment(name, comment) {
+      var commentsList = document.getElementById("comments");
 
+      var listItem = document.createElement("li");
+      listItem.className = "comment";
 
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="images/Alizhan.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>ALizhan Zholdas</h3>
-                            <div class="meta">May 18th, 2023 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
+      var vcard = document.createElement("div");
+      vcard.className = "vcard bio";
 
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="vcard bio">
-                                  <img src="images/Tore.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                  <h3>Tore Biken</h3>
-                                  <div class="meta">May 18th, 2023 at 2:21pm</div>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                  <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-                              </li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
+      var image = document.createElement("img");
+      image.src = "images/Alizhan.jpg";
+      image.alt = "Image placeholder";
+      image.style.width = "100px";
+  image.style.height = "100px";
+  image.style.marginTop = "30px";
+      vcard.appendChild(image);
 
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/sula.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Sultan Sovetov</h3>
-                    <div class="meta">May 18th, 2023 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-              </ul>
+      var commentBody = document.createElement("div");
+      commentBody.className = "comment-body";
+    
+      var heading = document.createElement("h3");
+      heading.textContent = name;
+
+      var meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent = getCurrentDate();
+
+      var commentText = document.createElement("p");
+      commentText.textContent = comment;
+      commentText.style.color = "black";
+      commentText.style.fontSize = "large";
+      
+
+      var replyLink = document.createElement("p");
+      var replyAnchor = document.createElement("a");
+      replyAnchor.href = "#";
+      replyAnchor.className = "reply";
+      replyAnchor.textContent = "Reply";
+
+      replyLink.appendChild(replyAnchor);
+
+      commentBody.appendChild(heading);
+      commentBody.appendChild(meta);
+      commentBody.appendChild(commentText);
+      commentBody.appendChild(replyLink);
+
+      listItem.appendChild(vcard);
+      listItem.appendChild(commentBody);
+
+      commentsList.appendChild(listItem);
+
+      console.log("Comment added:", name, comment);
+    }
+
+    function getCurrentDate() {
+      var date = new Date();
+      var options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      };
+      return date.toLocaleDateString("en-US", options);
+    }
+              </script>
               <!-- END comment-list -->
               
               <div class="comment-form-wrap pt-5">
